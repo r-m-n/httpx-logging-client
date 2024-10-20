@@ -2,10 +2,11 @@ import time
 
 import httpx
 import structlog
-from httpx import Request
+from httpx import (
+    Request,
+    Response,
+)
 from structlog.types import FilteringBoundLogger
-from httpx import Response
-
 
 logger = structlog.get_logger()
 
@@ -38,12 +39,13 @@ class HTTPLoggingTransport(httpx.HTTPTransport):
         start_time = time.perf_counter()
         try:
             response = super().handle_request(request)
+            end_time = time.perf_counter()
             log = log_bind_response(log, response)
             response.read()
             log.info(
                 "httpx request",
                 response_body=response.content.decode(),
-                duration=time.perf_counter() - start_time,
+                duration=end_time - start_time,
             )
             return response
         except httpx.HTTPError as exc:
@@ -61,12 +63,13 @@ class AsyncHTTPLoggingTransport(httpx.AsyncHTTPTransport):
         start_time = time.perf_counter()
         try:
             response = await super().handle_async_request(request)
+            end_time = time.perf_counter()
             log = log_bind_response(log, response)
             await response.aread()
             log.info(
                 "httpx request",
                 response_body=response.content.decode(),
-                duration=time.perf_counter() - start_time,
+                duration=end_time - start_time,
             )
             return response
         except httpx.HTTPError as exc:

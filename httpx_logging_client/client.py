@@ -1,13 +1,24 @@
 import typing
+
 import httpx
-from httpx import ASGITransport, WSGITransport
+from httpx import (
+    ASGITransport,
+    WSGITransport,
+)
+from httpx._config import (
+    DEFAULT_LIMITS,
+    Limits,
+    Proxy,
+)
+from httpx._types import (
+    CertTypes,
+    VerifyTypes,
+)
+
 from httpx_logging_client.transport import (
     AsyncHTTPLoggingTransport,
     HTTPLoggingTransport,
 )
-from httpx._types import CertTypes
-from httpx._types import VerifyTypes
-from httpx._config import Limits, Proxy, DEFAULT_LIMITS
 
 
 class LoggingClient(httpx.Client):

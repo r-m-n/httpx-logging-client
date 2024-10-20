@@ -13,7 +13,13 @@ structlog = "^24.2.0"
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.10.1"
 ruff = "^0.5.0"
+isort = "^5.13.2"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 2
