@@ -1,6 +1,20 @@
+![PyPI - Version](https://img.shields.io/pypi/v/httpx-structlog)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/httpx-structlog)
+
+
+# httpx-structlog
+
 Сustom httpx client that logs all requests and responses with structlog.
 
-Usage
+## Installation
+
+Install using `pip`:
+
+```shell
+$ pip install httpx-structlog
+```
+
+## Usage
 
 ```python
 from httpx_structlog import AsyncLoggingClient, LoggingClient
@@ -20,7 +34,7 @@ async with AsyncLoggingClient() as client:
     await client.get("https://httpbin.org/uuid")
 ```
 
-Log example
+## Log example
 
 ```json
 {
