@@ -1,9 +1,9 @@
-Сustom httpx client that logs all requests and responses.
+Сustom httpx client that logs all requests and responses with structlog.
 
 Usage
 
 ```python
-from httpx_logging_client import AsyncLoggingClient, LoggingClient
+from httpx_structlog import AsyncLoggingClient, LoggingClient
 
 # configure structlog
 # structlog.configure(

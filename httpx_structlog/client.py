@@ -15,7 +15,7 @@ from httpx._types import (
     VerifyTypes,
 )
 
-from httpx_logging_client.transport import (
+from httpx_structlog.transport import (
     AsyncHTTPLoggingTransport,
     HTTPLoggingTransport,
 )
