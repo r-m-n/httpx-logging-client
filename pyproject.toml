@@ -1,9 +1,12 @@
 [tool.poetry]
 name = "httpx-structlog"
-version = "0.1.0"
-description = ""
+version = "0.1.1"
+description = "Сustom httpx client that logs all requests and responses with structlog."
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
+homepage = "https://github.com/r-m-n/httpx-structlog"
+repository = "https://github.com/r-m-n/httpx-structlog"
+keywords = ["httpx", "structlog", "logging"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
